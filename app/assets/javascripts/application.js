@@ -12,4 +12,11 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require_tree .
+//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
+//= require bootstrap-material-design.min
+//= require perfect-scrollbar.jquery.min
+//= require chartist.min
+//= require bootstrap-notify
+//= require material-dashboard

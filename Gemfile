@@ -42,6 +42,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 
 gem 'bootstrap', '~> 4.1.3'
+gem 'font-awesome-rails'
 
 # Gems for DB
 gem 'pg'
