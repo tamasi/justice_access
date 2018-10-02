@@ -1,0 +1,46 @@
+
+<div class="card-body">
+  <%= form_with(model: attorney, local: true) do |form| %>
+    <% if attorney.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(attorney.errors.count, "error") %> prohibited this attorney from being saved:</h2>
+
+        <ul>
+        <% attorney.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :name, class: "bmd-label-floating" %>
+          <%= form.text_field :name, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">  
+          <%= form.label :last_name, class: "bmd-label-floating" %>
+          <%= form.text_field :last_name, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">  
+          <%= form.label :licence, class: "bmd-label-floating" %>
+          <%= form.number_field :licence, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    
+    <%= form.submit "Guardar", class: "btn btn-primary pull-right" %>
+    <div class="clearfix"></div>
+  <% end %>
+</div>
+
+

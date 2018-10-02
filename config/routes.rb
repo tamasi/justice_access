@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :attorneys
   resources :complainants
   resources :instittutions
   devise_for :users

@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Editar informacion del Abogado</h4>
+        <p class="card-category">Completa la informacion del abogado</p>
+      </div>
+      <%= render 'form', attorney: @attorney %>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Show', @attorney, class:"btn btn-sm btn-outline-primary" %> |
+<%= link_to 'Back', attorneys_path, class:"btn btn-sm btn-outline-secondary" %>
