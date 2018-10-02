@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cp: 1
+  name: MyString
+  city: 
+
+two:
+  cp: 1
+  name: MyString
+  city: 
