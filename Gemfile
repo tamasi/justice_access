@@ -43,6 +43,8 @@ gem 'devise'
 
 gem 'bootstrap', '~> 4.1.3'
 gem 'font-awesome-rails'
+gem 'select2-rails'
+gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 
 # Gems for DB
 gem 'pg'

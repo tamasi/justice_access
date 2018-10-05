@@ -19,6 +19,7 @@ class InstittutionsController < ApplicationController
 
   # GET /instittutions/1/edit
   def edit
+    puts @institution
   end
 
   # POST /instittutions

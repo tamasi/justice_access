@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_190048) do
+ActiveRecord::Schema.define(version: 2018_10_03_191351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,10 +52,26 @@ ActiveRecord::Schema.define(version: 2018_10_02_190048) do
     t.string "iso"
   end
 
+  create_table "courts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "jurisdiction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["jurisdiction_id"], name: "index_courts_on_jurisdiction_id"
+  end
+
   create_table "instittutions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "jurisdictions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "location_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_jurisdictions_on_location_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -80,5 +96,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_190048) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "courts", "jurisdictions"
+  add_foreign_key "jurisdictions", "locations"
   add_foreign_key "locations", "cities"
 end

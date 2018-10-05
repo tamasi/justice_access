@@ -20,3 +20,6 @@
 //= require chartist.min
 //= require bootstrap-notify
 //= require material-dashboard
+//= require underscore
+//= require select2
+//= require court

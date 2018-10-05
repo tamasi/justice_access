@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">Editar informacion del Juzgado</h4>
+        <p class="card-category">Agrega o cambia los datos del Juzgado</p>
+      </div>
+      <%= render 'form', court: @court %>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Show', @court, class:"btn btn-outline-primary btn-sm" %> |
+<%= link_to 'Back', courts_path, class:"btn btn-outline-secondary btn-sm" %>
