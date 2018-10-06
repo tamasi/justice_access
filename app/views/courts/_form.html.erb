@@ -19,25 +19,17 @@
           <%= form.text_field :name, class:"form-control" %>
         </div>
       </div>
-      <%# <div class="col-md-12">
-        <div class="form-group">
+      
+      <div class="col-md-6">
+        <div class="form-group never-submit">
           <%= form.label "Provincia", class:"bmd-label-floating" %>
-          <%#<%= form.select :city_name, options_from_collection_for_select(City.all, "id", "city_name", 104), class:"form-control" %>
-       <%# </div>
-      </div> %>
-
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= form.label "Provincia", class:"bmd-label-floating" %>
-            <%= form.collection_select :city_id, City.argentina, :id, :city_name, include_blank: true %>
-          </div>
+          <%= form.collection_select :city_id, City.argentina, :id, :city_name, include_blank: true, class:"never-submit"%>
         </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= form.label "Jurisdiccion", class: "bmd-label-floating" %>
-            <%= form.grouped_collection_select :jurisdiction_id, City.argentina, :jurisdiction, :city_name, :id, :name, include_blank: true %>
-          </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label "Jurisdiccion", class: "bmd-label-floating" %>
+          <%= form.grouped_collection_select :jurisdiction_id, City.argentina, :jurisdiction, :city_name, :id, :name, include_blank: true %>
         </div>
       </div>
     </div>

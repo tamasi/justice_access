@@ -1,10 +1,26 @@
 $(document).ready(function() {
-  $('#court_city_id').select2({
-    theme: "bootstrap"
+  $('#court_city_id').sm_select({
+    show_placeholder:true,
+    duration: 1200,
+    input_text: 'comienza a escribir el nombre de la provincia...'
   })
-  $('#court_jurisdiction_id').select2({
-    theme: "bootstrap"
+  
+  $('#court_jurisdiction_id').sm_select({
+    show_placeholder:true,
+    duration: 1200,
+    input_text: 'comienza a escribir el nombre de la jurisdiccion...'
   })
+
+  // Function to never submit a form field
+  $('form').submit(function() {
+    $('.never-submit').prop('disabled', true);
+    console.log("####################entro al never")
+    return true;
+  });
+});
+
+$(document).ready(function() {
+  
 });
 
 jQuery(function() {

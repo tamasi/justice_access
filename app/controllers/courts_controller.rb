@@ -1,5 +1,5 @@
 class CourtsController < ApplicationController
-  before_action :set_court, only: [:show, :edit, :destroy]
+  before_action :set_court, only: [:show, :edit, :update, :destroy]
   
   def index
     @courts = Court.all
@@ -17,8 +17,8 @@ class CourtsController < ApplicationController
   end
 
   def create
-    @court = Court.new(court_params)
-
+    params_court = court_params.except(:city_id)
+    @court = Court.new(params_court)
     respond_to do |format|
       if @court.save
         format.html { redirect_to @court, notice: 'Court was successfully created.' }
@@ -32,6 +32,7 @@ class CourtsController < ApplicationController
 
   def update
     respond_to do |format|
+      
       if @court.update(court_params)
         format.html { redirect_to @court, notice: 'court was successfully updated.' }
         format.json { render :show, status: :ok, location: @court }

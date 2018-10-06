@@ -22,4 +22,6 @@
 //= require material-dashboard
 //= require underscore
 //= require select2
+//= require jquery-ui
+//= require select2-materialize
 //= require court
