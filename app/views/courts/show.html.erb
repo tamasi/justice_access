@@ -1,9 +1,29 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @court.name %>
-</p>
-
-<%= link_to 'Edit', edit_court_path(@court) %> |
-<%= link_to 'Back', courts_path %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-success card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">account_balance</i>
+        </div>
+        <p class="card-category">Nombre</p>
+        <h3 class="card-title"> <%= @court.name %> </h3>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Detalles</h4>
+        <p class="card-category"><%= @court.jurisdiction.location.city.city_name%></p>
+        <p class="card-category"><%= @court.jurisdiction.name %></p>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <%= link_to edit_court_path, class: "btn btn-outline-primary btn-sm" do %>
+            <i class="material-icons">edit</i>Edit
+          <% end %>
+          <%= link_to courts_path, class: "btn btn-outline-secondary btn-sm" do %>
+            <i class="material-icons">arrow_back</i>Volver
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

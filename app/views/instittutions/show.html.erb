@@ -1,9 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @instittution.name %>
-</p>
-
-<%= link_to 'Edit', edit_instittution_path(@instittution) %> |
-<%= link_to 'Back', instittutions_path %>
+<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-success card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">location_city</i>
+        </div>
+        <p class="card-category">Nombre</p>
+        <h3 class="card-title"> <%= @instittution.name %> </h3>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">Detalles</h4>
+        <p class="card-category">Ejemplo</p>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <%= link_to edit_instittution_path, class: "btn btn-outline-primary btn-sm" do %>
+            <i class="material-icons">edit</i>Edit
+          <% end %>
+          <%= link_to instittutions_path, class: "btn btn-outline-secondary btn-sm" do %>
+            <i class="material-icons">arrow_back</i>Volver
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
