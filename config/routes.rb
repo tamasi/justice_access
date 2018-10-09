@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :disabilities
+  resources :genders
   resources :attorneys
   resources :complainants
   resources :instittutions

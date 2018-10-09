@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_162940) do
+ActiveRecord::Schema.define(version: 2018_10_09_211447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,15 @@ ActiveRecord::Schema.define(version: 2018_10_08_162940) do
     t.string "last_name"
     t.date "birthdate"
     t.string "address"
-    t.string "gender"
-    t.string "disability"
     t.boolean "migrant"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "country_id"
+    t.bigint "gender_id"
+    t.bigint "disability_id"
     t.index ["country_id"], name: "index_complainants_on_country_id"
+    t.index ["disability_id"], name: "index_complainants_on_disability_id"
+    t.index ["gender_id"], name: "index_complainants_on_gender_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -59,6 +61,19 @@ ActiveRecord::Schema.define(version: 2018_10_08_162940) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["jurisdiction_id"], name: "index_courts_on_jurisdiction_id"
+  end
+
+  create_table "disabilities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genders", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "instittutions", force: :cascade do |t|
@@ -98,6 +113,8 @@ ActiveRecord::Schema.define(version: 2018_10_08_162940) do
 
   add_foreign_key "cities", "countries"
   add_foreign_key "complainants", "countries"
+  add_foreign_key "complainants", "disabilities"
+  add_foreign_key "complainants", "genders"
   add_foreign_key "courts", "jurisdictions"
   add_foreign_key "jurisdictions", "locations"
   add_foreign_key "locations", "cities"
