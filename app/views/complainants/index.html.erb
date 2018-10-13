@@ -13,6 +13,7 @@
       <th>Gender</th>
       <th>Disability</th>
       <th>Migrant</th>
+      <th>Pueblo Originario</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,10 +25,11 @@
         <td><%= complainant.last_name %></td>
         <td><%= complainant.birthdate %></td>
         <td><%= complainant.address %></td>
-        <td><%= complainant.nationality %></td>
-        <td><%= complainant.gender %></td>
-        <td><%= complainant.disability %></td>
+        <td><%= complainant.country.country_name %></td>
+        <td><%= complainant.gender.name %></td>
+        <td><%= complainant.disability.name %></td>
         <td><%= complainant.migrant %></td>
+        <td><%= complainant.native.name %></td>
         <td><%= link_to 'Show', complainant %></td>
         <td><%= link_to 'Edit', edit_complainant_path(complainant) %></td>
         <td><%= link_to 'Destroy', complainant, method: :delete, data: { confirm: 'Are you sure?' } %></td>

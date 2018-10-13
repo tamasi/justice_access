@@ -1,0 +1,2 @@
+module NativesHelper
+end

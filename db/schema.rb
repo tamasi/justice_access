@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_10_011615) do
+ActiveRecord::Schema.define(version: 2018_10_13_135007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,9 +44,11 @@ ActiveRecord::Schema.define(version: 2018_10_10_011615) do
     t.bigint "gender_id"
     t.bigint "disability_id"
     t.decimal "salary"
+    t.bigint "native_id"
     t.index ["country_id"], name: "index_complainants_on_country_id"
     t.index ["disability_id"], name: "index_complainants_on_disability_id"
     t.index ["gender_id"], name: "index_complainants_on_gender_id"
+    t.index ["native_id"], name: "index_complainants_on_native_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -100,6 +102,23 @@ ActiveRecord::Schema.define(version: 2018_10_10_011615) do
     t.index ["city_id"], name: "index_locations_on_city_id"
   end
 
+  create_table "migrants", force: :cascade do |t|
+    t.bigint "complainant_id"
+    t.bigint "country_id"
+    t.bigint "city_id"
+    t.index ["city_id"], name: "index_migrants_on_city_id"
+    t.index ["complainant_id"], name: "index_migrants_on_complainant_id"
+    t.index ["country_id"], name: "index_migrants_on_country_id"
+  end
+
+  create_table "natives", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.index ["location_id"], name: "index_natives_on_location_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -116,7 +135,12 @@ ActiveRecord::Schema.define(version: 2018_10_10_011615) do
   add_foreign_key "complainants", "countries"
   add_foreign_key "complainants", "disabilities"
   add_foreign_key "complainants", "genders"
+  add_foreign_key "complainants", "natives"
   add_foreign_key "courts", "jurisdictions"
   add_foreign_key "jurisdictions", "locations"
   add_foreign_key "locations", "cities"
+  add_foreign_key "migrants", "cities"
+  add_foreign_key "migrants", "complainants"
+  add_foreign_key "migrants", "countries"
+  add_foreign_key "natives", "locations"
 end

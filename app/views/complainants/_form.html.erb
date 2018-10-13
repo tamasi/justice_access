@@ -23,7 +23,7 @@
 
   <div class="field">
     <%= form.label :birthdate %>
-    <%= form.date_select :birthdate %>
+    <%= form.date_field :birthdate %>
   </div>
 
   <div class="field">
@@ -32,23 +32,28 @@
   </div>
 
   <div class="field">
-    <%= form.label :nationality %>
-    <%= form.text_field :nationality %>
+    <%= form.label :country_id %>
+    <%= form.text_field :country_id %>
   </div>
 
   <div class="field">
-    <%= form.label :gender %>
-    <%= form.text_field :gender %>
+    <%= form.label :gender_id %>
+    <%= form.text_field :gender_id %>
   </div>
 
   <div class="field">
-    <%= form.label :disability %>
-    <%= form.text_field :disability %>
+    <%= form.label :disability_id %>
+    <%= form.text_field :disability_id %>
   </div>
 
   <div class="field">
     <%= form.label :migrant %>
     <%= form.check_box :migrant %>
+  </div>
+
+  <div class="field">
+    <%= form.label :native %>
+    <%= form.text_field :native %>
   </div>
 
   <div class="actions">

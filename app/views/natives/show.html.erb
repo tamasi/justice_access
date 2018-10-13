@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @native.name %>
+</p>
+
+<p>
+  <strong>Locations:</strong>
+  <%= @native.locations %>
+</p>
+
+<%= link_to 'Edit', edit_native_path(@native) %> |
+<%= link_to 'Back', natives_path %>
