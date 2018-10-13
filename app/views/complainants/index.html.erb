@@ -28,8 +28,8 @@
         <td><%= complainant.country.country_name %></td>
         <td><%= complainant.gender.name %></td>
         <td><%= complainant.disability.name %></td>
-        <td><%= complainant.migrant %></td>
-        <td><%= complainant.native.name %></td>
+        <td><%= complainant.migrant.city.city_name %></td>
+        <td><%= complainant.native ? complainant.native.name : "" %></td>
         <td><%= link_to 'Show', complainant %></td>
         <td><%= link_to 'Edit', edit_complainant_path(complainant) %></td>
         <td><%= link_to 'Destroy', complainant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
