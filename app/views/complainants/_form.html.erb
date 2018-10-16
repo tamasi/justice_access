@@ -1,84 +1,100 @@
-<%= form_with(model: complainant, local: true) do |form| %>
-  <% if complainant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(complainant.errors.count, "error") %> prohibited this complainant from being saved:</h2>
+<div class="card-body">
+  <%= form_with(model: complainant, local: true) do |form| %>
+    <% if complainant.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(complainant.errors.count, "error") %> prohibited this complainant from being saved:</h2>
 
-      <ul>
-      <% complainant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% complainant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :name, class:"bmd-label-floating" %>
+          <%= form.text_field :name, class:"form-control" %>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :last_name, class:"bmd-label-floating" %>
+          <%= form.text_field :last_name, class:"form-control" %>
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :birthdate %>
-    <%= form.date_field :birthdate %>
-  </div>
-
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country_id %>
-    <%= form.collection_select :country_id, Country.all, :id, :country_name, include_blank: true, class:"" %>
-  </div>
-
-  <div class="field">
-    <%= form.label :gender_id %>
-    <%= form.text_field :gender_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :disability_id %>
-    <%= form.text_field :disability_id %>
-  </div>
-
-  <%# <div class="field">
-    <%= form.label :migrant %>
-  <%#  <%= form.check_box :migrant %>
-  <%#</div> %>
-
-  <div class="row">
-    <div class="col">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :birthdate, class: "bmd-label-floating" %>
+          <%= form.date_field :birthdate, class: "form-control bootstrap-datetimepicker-widget" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :address, class: "bmd-label-floating" %>
+          <%= form.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :country_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :country_id, Country.all, :id, :country_name, { :include_blank => 'Elije tu país...' }, {:class => "form-control"} %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :gender_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :gender_id, Gender.all, :id, :name, { :include_blank => 'Elije tu género...' }, { :class => 'form-control' } %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :disability_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :disability_id, Disability.all, :id, :name, { :include_blank => 'Elije la discapacidad...' }, { :class => 'form-control'} %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <%= form.fields_for :migrant do |migrant_form| %>
-        <div class="field">
-          <div class="col-md-6">
-            <div class="form-group ">
-              <%= migrant_form.label "Pais", class:"bmd-label-floating" %>
-              <%= migrant_form.collection_select :country_id, Country.all, :id, :country_name, include_blank: true, class:""%>
-            </div>
+        <div class="col-md-12">
+          <label for="">Completa esta información si el Denunciante es un Inmigrante</label>
+          <div class="form-group">
+            <%= migrant_form.label "País", class:"bmd-label-floating" %>
+            <%= migrant_form.collection_select :country_id, Country.all, :id, :country_name, { :include_blank => 'Elije el país de origen...' }, {:class => 'form-control'} %>
           </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= migrant_form.label "Provincia", class: "bmd-label-floating" %>
-              <%= migrant_form.collection_select :city_id, City.argentina, :id, :city_name, include_blank: true %>
-            </div>
+          <div class="form-group">
+            <%= migrant_form.label "Provincia", class: "bmd-label-floating" %>
+            <%= migrant_form.collection_select :city_id, City.argentina, :id, :city_name, {:include_blank => 'Elije una provincia Argentina'}, {:class => 'form-control'} %>
           </div>
         </div>
       <% end %>
     </div>
-    
-  </div>
+      
+    <div class="row">
+      <%= form.fields_for :native do |native_form| %>
+        <div class="col-md-12">
+          <label for="">Completa si el causante pertenece a un Pueblo Originario</label>
+          <div class="form-group">
+            <%= native_form.label "Pertenece a una Comunidad Originaria?", class: "bmd-label-floating" %>
+            <%= native_form.collection_select :native_id, Native.all, :id, :name, {:include_blank => 'elije una comunidad...'}, {:class => 'form-control'} %>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
-  <div class="field">
-    <%= form.label :native_id %>
-    <%= form.text_field :native_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+    <%= form.submit "Guardar", class: "btn btn-primary pull-rigth" %>
+    <div class="clearfix"></div>
+  <% end %>
+</div>

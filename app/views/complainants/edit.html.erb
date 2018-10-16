@@ -1,6 +1,18 @@
-<h1>Editing Complainant</h1>
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">
+          Editar la información del Denunciante
+        </h4>
+        <p class="card-category">
+          Agrega o cambia los datos del Denunciante
+        </p>
+      </div>
+      <%= render 'form', complainant: @complainant%>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', complainant: @complainant %>
-
-<%= link_to 'Show', @complainant %> |
-<%= link_to 'Back', complainants_path %>
+<%= link_to 'Show', @complainant, class: "btn btn-outline-primary btn-sm" %> |
+<%= link_to 'Back', complainants_path, class: "btn btn-outline-secondary btn-sm" %>

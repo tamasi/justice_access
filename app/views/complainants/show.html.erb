@@ -1,44 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @complainant.name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @complainant.last_name %>
-</p>
-
-<p>
-  <strong>Birthdate:</strong>
-  <%= @complainant.birthdate %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @complainant.address %>
-</p>
-
-<p>
-  <strong>Nationality:</strong>
-  <%= @complainant.country %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @complainant.gender %>
-</p>
-
-<p>
-  <strong>Disability:</strong>
-  <%= @complainant.disability %>
-</p>
-
-<p>
-  <strong>Migrant:</strong>
-  <%= @complainant.migrant %>
-</p>
-
-<%= link_to 'Edit', edit_complainant_path(@complainant) %> |
-<%= link_to 'Back', complainants_path %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card card-stats">
+      <div class="card-header card-header-success card-header-icon">
+        <div class="card-icon">
+          <i class="material-icons">account_box</i>
+        </div>
+        <p class="card-category">Denunciante</p>
+        <h3 class="card-title"> <%= @complainant.full_name %> </h3>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title"><strong>Detalles</strong></h4>
+        <p class="card-text">Fecha de Nacimiento: <%= @complainant.birthdate.strftime("%d/%m/%Y") %> </p>
+        <p class="card-text">Dirección: <%= @complainant.address %> </p>
+        <p class="card-text">Nacionalidad: <%= @complainant.country.country_name %> </p>
+        <p class="card-text">Genero: <%= @complainant.gender.name %> </p>
+        <p class="card-text">Discacidad: <%= @complainant.disability ? @complainant.disability.name : "No presenta Discapacidades" %> </p>
+      </div>
+      <% if @complainant.migrant %>
+        <div class="card-body">
+          <h4 class="card-title"><strong>Datos de Migracion</strong></h4>
+          <p class="card-text">País de origen: <%= @complainant.migrant.country.country_name %> </p>
+          <p class="card-text">Provincia de origen: <%= @complainant.migrant.city.city_name %> </p>
+        </div>
+      <% end %>
+      <% if @complainant.native %>
+        <div class="card-body">
+          <h4 class="card-title"><strong>Pertenencia a Pueblo Originario</strong></h4>
+          <p class="card-text">Nombre de la Comunidad: <%= @complainant.native.name %> </p>
+        </div>
+      <% end %>
+      <div class="card-footer">
+        <div class="card-stats">
+          <%= link_to edit_complainant_path, class: "btn btn-outline-primary btn-sm" do %>
+            <i class="material-icons">edit</i>Edit
+          <% end %>
+          <%= link_to complainants_path, class: "btn btn-outline-secondary btn-sm pull-rigth" do %>
+            <i class="material-icons">arrow_back</i>Volver
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
