@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_001646) do
+ActiveRecord::Schema.define(version: 2018_10_17_135804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 2018_10_17_001646) do
     t.index ["disability_id"], name: "index_complainants_on_disability_id"
     t.index ["gender_id"], name: "index_complainants_on_gender_id"
     t.index ["native_id"], name: "index_complainants_on_native_id"
+  end
+
+  create_table "conflicts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "law_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["law_id"], name: "index_conflicts_on_law_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -150,6 +158,7 @@ ActiveRecord::Schema.define(version: 2018_10_17_001646) do
   add_foreign_key "complainants", "disabilities"
   add_foreign_key "complainants", "genders"
   add_foreign_key "complainants", "natives"
+  add_foreign_key "conflicts", "laws"
   add_foreign_key "courts", "jurisdictions"
   add_foreign_key "jurisdictions", "locations"
   add_foreign_key "laws", "law_categories"

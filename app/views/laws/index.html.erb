@@ -15,7 +15,7 @@
     <% @laws.each do |law| %>
       <tr>
         <td><%= law.name %></td>
-        <td><%= law.law_category %></td>
+        <td><%= law.law_category.name %></td>
         <td><%= link_to 'Show', law %></td>
         <td><%= link_to 'Edit', edit_law_path(law) %></td>
         <td><%= link_to 'Destroy', law, method: :delete, data: { confirm: 'Are you sure?' } %></td>

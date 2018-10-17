@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :conflicts
   resources :laws
   resources :law_categories
   resources :natives
