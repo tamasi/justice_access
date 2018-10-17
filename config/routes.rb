@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :laws
+  resources :law_categories
   resources :natives
   resources :disabilities
   resources :genders

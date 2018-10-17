@@ -67,6 +67,14 @@
       </div>
     </div>
     <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <%= form.label :salary, class:"bmd-label-floating" %>
+          <%= form.text_field :salary, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
       <%= form.fields_for :migrant do |migrant_form| %>
         <div class="col-md-12">
           <label for="">Completa esta información si el Denunciante es un Inmigrante</label>

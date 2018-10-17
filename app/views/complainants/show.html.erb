@@ -16,6 +16,8 @@
         <p class="card-text">Dirección: <%= @complainant.address %> </p>
         <p class="card-text">Nacionalidad: <%= @complainant.country.country_name %> </p>
         <p class="card-text">Genero: <%= @complainant.gender.name %> </p>
+        <p class="card-text">Salario: <%= @complainant.salary %> </p>
+        <p class="card-text">Status Social: <%= @complainant.social_status %> </p>
         <p class="card-text">Discacidad: <%= @complainant.disability ? @complainant.disability.name : "No presenta Discapacidades" %> </p>
       </div>
       <% if @complainant.migrant %>

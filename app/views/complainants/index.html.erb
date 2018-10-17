@@ -19,6 +19,7 @@
               <th>Nacionalidad</th>
               <th>Género</th>
               <th>Discapacidad</th>
+              <th>Condicion Social</th>
               <th>Migrante?</th>
               <th>Pueblo Originario</th>
               <th colspan="3#"></th>
@@ -32,6 +33,7 @@
                   <td><%= complainant.country.country_name %></td>
                   <td><%= complainant.gender.name %></td>
                   <td><%= complainant.disability ? complainant.disability.name : "" %></td>
+                  <td><%= complainant.social_status %></td>
                   <td><%= complainant.migrant ? complainant.migrant.city.city_name : "" %></td>
                   <td><%= complainant.native ? complainant.native.name : "" %></td>
                   <td><%= link_to 'Show', complainant %></td>

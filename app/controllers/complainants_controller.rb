@@ -70,6 +70,6 @@ class ComplainantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complainant_params
-      params.require(:complainant).permit(:name, :last_name, :birthdate, :address, :country_id, :gender_id, :disability_id, :migrant, :native_id, migrant_attributes: [:country_id, :city_id, :_destroy])
+      params.require(:complainant).permit(:name, :last_name, :birthdate, :address, :country_id, :gender_id, :disability_id, :salary, :migrant, :native_id, migrant_attributes: [:country_id, :city_id, :_destroy])
     end
 end
