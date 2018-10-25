@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :complaints
   resources :conflicts
   resources :laws
   resources :law_categories
@@ -9,7 +10,10 @@ Rails.application.routes.draw do
   resources :complainants
   resources :instittutions
   resources :courts
+  
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#index'
+  get "/pages/:page" => "static_pages#dashboard"
+  
 end

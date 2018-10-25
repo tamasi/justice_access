@@ -16,6 +16,7 @@ class ComplainantsController < ApplicationController
   def new
     @complainant = Complainant.new
     @complainant.build_migrant
+    
   end
 
   # GET /complainants/1/edit
@@ -70,6 +71,6 @@ class ComplainantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complainant_params
-      params.require(:complainant).permit(:name, :last_name, :birthdate, :address, :country_id, :gender_id, :disability_id, :salary, :migrant, :native_id, migrant_attributes: [:country_id, :city_id, :_destroy])
+      params.require(:complainant).permit(:name, :last_name, :birthdate, :address, :country_id, :gender_id, :disability_id, :salary, :migrant, :native_id, migrant_attributes: [:country_id, :city_id, :_destroy], complaint_attributes: [:court_id, :conflict_id, :instittution_id, :cost_free_attorney])
     end
 end

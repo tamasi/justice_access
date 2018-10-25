@@ -1,0 +1,43 @@
+<%= form_with(model: complaint, local: true) do |form| %>
+  <% if complaint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
+
+      <ul>
+      <% complaint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :conflict_id %>
+    <%= form.collection_select :conflict_id, Conflict.all, :id, :name, { :include_blank => 'Elije un tipo de conflicto'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :complainant_id %>
+    <%= form.text_field :complainant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :institution_id %>
+    <%= form.collection_select :instittution_id, Instittution.all, :id, :name, { :include_blank => 'Elije una Institución'} %>
+    
+  </div>
+
+  <div class="field">
+    <%= form.label :court_id %>
+    <%= form.collection_select :court_id, Court.all, :id, :name, { :include_blank => 'Elije un Juzgado'} %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cost_free_attorney %>
+    <%= form.check_box :cost_free_attorney %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

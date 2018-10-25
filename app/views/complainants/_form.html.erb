@@ -91,12 +91,38 @@
     </div>
       
     <div class="row">
-      <%= form.fields_for :native do |native_form| %>
+      <div class="col-md-12">
+        <label for="">Completa si el causante pertenece a un Pueblo Originario</label>
+        <div class="form-group">
+          <%= form.label "Pertenece a una Comunidad Originaria?", class: "bmd-label-floating" %>
+          <%= form.collection_select :native_id, Native.all, :id, :name, {:include_blank => 'elije una comunidad...'}, {:class => 'form-control'} %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <%= form.fields_for :complaint do |complaint_form| %>
         <div class="col-md-12">
-          <label for="">Completa si el causante pertenece a un Pueblo Originario</label>
-          <div class="form-group">
-            <%= native_form.label "Pertenece a una Comunidad Originaria?", class: "bmd-label-floating" %>
-            <%= native_form.collection_select :native_id, Native.all, :id, :name, {:include_blank => 'elije una comunidad...'}, {:class => 'form-control'} %>
+          <div class="card-header card-header-secondary">
+            <h4 class="card-title">DATOS DE LA DENUNCIA</h4>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <%= complaint_form.label :conflict_id %>
+              <%= complaint_form.collection_select :conflict_id, Conflict.all, :id, :name, { :include_blank => 'Elije un tipo de conflicto'} %>
+            </div>
+            <div class="form-group">
+              <%= complaint_form.label :institution_id %>
+              <%= complaint_form.collection_select :instittution_id, Instittution.all, :id, :name, { :include_blank => 'Elije una Institución'} %>
+            </div>
+            <div class="form-group">
+              <%= complaint_form.label :court_id %>
+              <%= complaint_form.collection_select :court_id, Court.all, :id, :name, { :include_blank => 'Elije un Juzgado'} %>
+            </div>
+            <div class="form-group">
+              <%= complaint_form.label :cost_free_attorney %>
+              <%= complaint_form.check_box :cost_free_attorney %>
+            </div>
           </div>
         </div>
       <% end %>

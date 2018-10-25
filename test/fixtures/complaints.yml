@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  conflict: one
+  complainant: one
+  institution: one
+  court: one
+  cost_free_attorney: false
+
+two:
+  conflict: two
+  complainant: two
+  institution: two
+  court: two
+  cost_free_attorney: false

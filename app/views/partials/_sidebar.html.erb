@@ -6,7 +6,7 @@
 -->
   <div class="logo">
     <a href="" class="simple-text logo-normal">
-      Acceso a la Justicia
+      JUSTO
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -29,42 +29,19 @@
           <p>Denunciantes</p>
         <% end %>
       </li>
+      <li class="nav-item <%= active_class(complaints_path) %>" >
+        <%= link_to complaints_path, class: "nav-link" do %>
+          <i class="material-icons">gavel</i>
+          <p>Denuncias</p>
+        <% end %>
+      </li>
       <li class="nav-item <%= active_class(courts_path) %> ">
         <%= link_to courts_path, class: "nav-link" do %>
           <i class="material-icons">account_balance</i>
           <p>Juzgados</p>
         <% end %>
       </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">
-          <i class="material-icons">content_paste</i>
-          <p>Table List</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">
-          <i class="material-icons">library_books</i>
-          <p>Typography</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">
-          <i class="material-icons">bubble_chart</i>
-          <p>Icons</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">
-          <i class="material-icons">location_ons</i>
-          <p>Maps</p>
-        </a>
-      </li>
-      <li class="nav-item ">
-        <a class="nav-link" href="#">
-          <i class="material-icons">notifications</i>
-          <p>Notifications</p>
-        </a>
-      </li>
+      
     </ul>
   </div>
 </div>

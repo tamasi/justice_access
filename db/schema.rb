@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_135804) do
+ActiveRecord::Schema.define(version: 2018_10_17_201325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 2018_10_17_135804) do
     t.index ["disability_id"], name: "index_complainants_on_disability_id"
     t.index ["gender_id"], name: "index_complainants_on_gender_id"
     t.index ["native_id"], name: "index_complainants_on_native_id"
+  end
+
+  create_table "complaints", force: :cascade do |t|
+    t.bigint "conflict_id"
+    t.bigint "complainant_id"
+    t.bigint "instittution_id"
+    t.bigint "court_id"
+    t.boolean "cost_free_attorney"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["complainant_id"], name: "index_complaints_on_complainant_id"
+    t.index ["conflict_id"], name: "index_complaints_on_conflict_id"
+    t.index ["court_id"], name: "index_complaints_on_court_id"
+    t.index ["instittution_id"], name: "index_complaints_on_instittution_id"
   end
 
   create_table "conflicts", force: :cascade do |t|
@@ -158,6 +172,10 @@ ActiveRecord::Schema.define(version: 2018_10_17_135804) do
   add_foreign_key "complainants", "disabilities"
   add_foreign_key "complainants", "genders"
   add_foreign_key "complainants", "natives"
+  add_foreign_key "complaints", "complainants"
+  add_foreign_key "complaints", "conflicts"
+  add_foreign_key "complaints", "courts"
+  add_foreign_key "complaints", "instittutions"
   add_foreign_key "conflicts", "laws"
   add_foreign_key "courts", "jurisdictions"
   add_foreign_key "jurisdictions", "locations"

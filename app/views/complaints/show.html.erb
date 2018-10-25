@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Conflict:</strong>
+  <%= @complaint.conflict.name %>
+</p>
+
+<p>
+  <strong>Complainant:</strong>
+  <%= @complaint.complainant.full_name %>
+</p>
+
+<p>
+  <strong>Institution:</strong>
+  <%= @complaint.instittution.name %>
+</p>
+
+<p>
+  <strong>Court:</strong>
+  <%= @complaint.court.name %>
+</p>
+
+<p>
+  <strong>Cost free attorney:</strong>
+  <%= @complaint.cost_free_attorney %>
+</p>
+
+<%= link_to 'Edit', edit_complaint_path(@complaint) %> |
+<%= link_to 'Back', complaints_path %>

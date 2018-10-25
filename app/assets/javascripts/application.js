@@ -25,3 +25,5 @@
 //= require jquery-ui
 //= require select2-materialize
 //= require court
+//= require wow
+//= require jquery.easing.min
