@@ -252,9 +252,11 @@ md = {
       /* ----------==========     Daily Sales Chart initialization    ==========---------- */
 
       dataDailySalesChart = {
-        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+        labels: ['2013', '2014', '2015', '2016', '2017'],
         series: [
-          [12, 17, 7, 17, 23, 18, 38]
+          [20, 17, 5, 37, 10],
+          [12, 37, 17, 7, 23],
+          [6, 24, 9, 20, 22]
         ]
       };
 
@@ -281,9 +283,11 @@ md = {
       /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
       dataCompletedTasksChart = {
-        labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
+        labels: ['2013', '2014', '2015', '2016', '2017'],
         series: [
-          [230, 750, 450, 300, 280, 240, 200, 190]
+          [230, 750, 450, 300, 280],
+          [330, 850, 550, 400, 380],
+          [130, 650, 450, 100, 180],
         ]
       };
 
@@ -310,9 +314,9 @@ md = {
       /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
 
       var dataWebsiteViewsChart = {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'],
+        labels: ['Salud', 'Educ.', 'Vivienda', 'Trabajo', 'S.Social'],
         series: [
-          [542, 443, 320, 780, 553, 453, 326, 434, 568, 610, 756, 895]
+          [542, 443, 320, 780, 553]
 
         ]
       };

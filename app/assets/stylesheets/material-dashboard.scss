@@ -6323,6 +6323,10 @@ a.text-info:hover, a.text-info:focus {
 .text-warning {
   color: #ffeb3b !important; }
 
+.text-azul {
+  color: #050e5e !important;
+}
+
 a.text-warning:hover, a.text-warning:focus {
   color: #ffe608 !important; }
 
@@ -11891,6 +11895,12 @@ label {
     .card [class*="card-header-"] .ct-chart .ct-series-a .ct-bar,
     .card [class*="card-header-"] .ct-chart .ct-series-a .ct-slice-donut {
       stroke: rgba(255, 255, 255, 0.8); }
+
+    // clase para customizar color serie-a HERNAN
+    .card [class*="card-header-"] .serie-custom .ct-series-a .ct-point,
+    .card [class*="card-header-"] .serie-custom .ct-series-a .ct-line {
+      stroke: rgba(11, 3, 121, 0.08)
+    }
     .card [class*="card-header-"] .ct-chart .ct-series-a .ct-slice-pie,
     .card [class*="card-header-"] .ct-chart .ct-series-a .ct-area {
       fill: rgba(255, 255, 255, 0.4); }
@@ -12188,6 +12198,11 @@ Copyright (c) 2015 Daniel Eden
 .ct-chart .ct-series-a .ct-slice-donut-solid,
 .ct-chart .ct-series-a .ct-area {
   stroke: #00bcd4; }
+
+.serie-custom .ct-series-a .ct-point,
+.serie-custom .ct-series-a .ct-line {
+  stroke: #050e5e !important;
+}
 
 .ct-chart .ct-series-b .ct-point,
 .ct-chart .ct-series-b .ct-line,
