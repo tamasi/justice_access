@@ -6,11 +6,8 @@ class StaticPagesController < ApplicationController
   end
 
   def dashboard
-    if valid_page?
-      render file: "static_pages/dashboard.html.erb"
-    else
-      render file: "public/404.html", status: :not_found
-    end
+    render file: "static_pages/dashboard.html.erb"
+    # render file: "public/404.html", status: :not_found
   end
   
   private
