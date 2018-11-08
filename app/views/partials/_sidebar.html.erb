@@ -17,12 +17,6 @@
           <p>Dashboard</p>
         <% end %>
       </li>
-      <li class="nav-item <%= active_class(instittutions_path) %>">
-        <%= link_to instittutions_path, class: "nav-link" do %>
-          <i class="material-icons">location_city</i>
-          <p>Instituciones</p>
-        <% end %>
-      </li>  
       <li class="nav-item <%= active_class(complainants_path) %> ">  
         <%= link_to complainants_path, class: "nav-link" do %>
           <i class="material-icons">person</i>
@@ -35,6 +29,12 @@
           <p>Denuncias</p>
         <% end %>
       </li>
+      <li class="nav-item <%= active_class(instittutions_path) %>">
+        <%= link_to instittutions_path, class: "nav-link" do %>
+          <i class="material-icons">location_city</i>
+          <p>Instituciones</p>
+        <% end %>
+      </li>  
       <li class="nav-item <%= active_class(courts_path) %> ">
         <%= link_to courts_path, class: "nav-link" do %>
           <i class="material-icons">account_balance</i>
