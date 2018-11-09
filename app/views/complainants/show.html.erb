@@ -48,3 +48,45 @@
     </div>
   </div>
 </div>
+
+<% if @complainant.complaints %>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-plain">
+        <div class="card-header card-header-primary">
+          <h4 class="card-title-mt-0">
+            Denuncias realizadas por este causante
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <th>Tipo de Denuncia</th>
+                <th>Institucion Presentante</th>
+                <th>Juzgado</th>
+                <th>Fecha de Presentacion</th>
+                <th>Ultima Modificacion</th>
+                <th colspan="3#"></th>
+              </thead>
+              <tbody>
+                <% @complainant.complaints.each do |denuncia| %>
+                  <tr>
+                    <td><%= denuncia.conflict.name %></td>
+                    <td> <%= denuncia.instittution.name %> </td>
+                    <td> <%= denuncia.court.name %> </td>
+                    <td> <%= denuncia.created_at.to_date %> </td>
+                    <td> <%= denuncia.updated_at.to_date %> </td>
+                    <td> <%= link_to "show", denuncia%> </td>
+                    <td> <%= link_to "Edit", edit_complaint_path(denuncia) %> </td>
+                    <td> <%= link_to "Borrar", denuncia, method: :delete, data: {confirm: "Estas Seguro?"} %> </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

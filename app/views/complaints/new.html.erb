@@ -1,5 +1,17 @@
-<h1>New Complaint</h1>
+<div class="row">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title">
+          Añade una nueva Denuncia
+        </h4>
+        <p class="card-category">
+          Ingresa una denuncia o consulta al sistema
+        </p>
+      </div>
+      <%= render 'form', complaint: @complaint %>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', complaint: @complaint %>
-
-<%= link_to 'Back', complaints_path %>
+<%= link_to 'Volver', complaints_path, class: "btn btn-outline-secondary btn-sm" %>

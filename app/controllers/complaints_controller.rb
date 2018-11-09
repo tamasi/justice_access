@@ -15,6 +15,7 @@ class ComplaintsController < ApplicationController
   # GET /complaints/new
   def new
     @complaint = Complaint.new
+    @complaint.build_complainant
   end
 
   # GET /complaints/1/edit
@@ -69,6 +70,6 @@ class ComplaintsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def complaint_params
-      params.require(:complaint).permit(:conflict_id, :complainant_id, :instittution_id, :court_id, :cost_free_attorney)
+      params.require(:complaint).permit(:conflict_id, :complainant_id, :instittution_id, :court_id, :cost_free_attorney, {complainant_attributes:[:name, :last_name, :dni, :birthdate, :address, :country_id, :gender_id, :disability_id, :salary, :migrant, :native_id, migrant_attributes: [:country_id, :city_id, :_destroy]]})
     end
 end

@@ -105,35 +105,6 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <%= form.fields_for :complaint do |complaint_form| %>
-        <div class="col-md-12">
-          <div class="card-header card-header-secondary">
-            <h4 class="card-title">DATOS DE LA DENUNCIA</h4>
-          </div>
-          <div class="card-body">
-            <div class="form-group">
-              <%= complaint_form.label :conflict_id %>
-              <%= complaint_form.collection_select :conflict_id, Conflict.all, :id, :name, { :include_blank => 'Elije un tipo de conflicto'} %>
-            </div>
-            <div class="form-group">
-              <%= complaint_form.label :institution_id %>
-              <%= complaint_form.collection_select :instittution_id, Instittution.all, :id, :name, { :include_blank => 'Elije una Institución'} %>
-            </div>
-            <div class="form-group">
-              <%= complaint_form.label :court_id %>
-              <%= complaint_form.collection_select :court_id, Court.all, :id, :name, { :include_blank => 'Elije un Juzgado'} %>
-            </div>
-            <div class="form-group">
-              <%= complaint_form.label :cost_free_attorney %>
-              <%= complaint_form.check_box :cost_free_attorney %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-
     <%= form.submit "Guardar", class: "btn btn-primary pull-rigth" %>
     <div class="clearfix"></div>
   <% end %>

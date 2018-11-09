@@ -1,43 +1,63 @@
-<%= form_with(model: complaint, local: true) do |form| %>
-  <% if complaint.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
+<div class="card-body">
+  <%= form_with(model: complaint, local: true) do |form| %>
+    <% if complaint.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(complaint.errors.count, "error") %> prohibited this complaint from being saved:</h2>
 
-      <ul>
-      <% complaint.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% complaint.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :conflict_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :conflict_id, Conflict.all, :id, :name, { :include_blank => 'Elije un tipo de conflicto'}, class:"form-control" %>  
+        </div>
+      </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">  
+          <%= form.label :complainant_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :complainant_id, Complainant.all, :id, :full_name, { :include_blank => 'Elije un denunciante' }, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">  
+          <%= form.label :institution_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :instittution_id, Instittution.all, :id, :name, { :include_blank => 'Elije una Institución'}, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :court_id, class:"bmd-label-floating" %>
+          <%= form.collection_select :court_id, Court.all, :id, :name, { :include_blank => 'Elije un Juzgado'}, class:"form-control" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <%= form.label :cost_free_attorney, class:"form-check-label" %>
+          <%= form.check_box :cost_free_attorney, class:"form-check" %>
+        </div>
+      </div>
+    </div>
+
+    <%# TODO formulario envevido para un denucnainte vinculado a la denuncia %>
+    <%= form.submit "Guardar", class: "btn btn-primary pull-rigth" %>
+    <div class="clearfix"></div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :conflict_id %>
-    <%= form.collection_select :conflict_id, Conflict.all, :id, :name, { :include_blank => 'Elije un tipo de conflicto'} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :complainant_id %>
-    <%= form.text_field :complainant_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :institution_id %>
-    <%= form.collection_select :instittution_id, Instittution.all, :id, :name, { :include_blank => 'Elije una Institución'} %>
-    
-  </div>
-
-  <div class="field">
-    <%= form.label :court_id %>
-    <%= form.collection_select :court_id, Court.all, :id, :name, { :include_blank => 'Elije un Juzgado'} %>
-  </div>
-
-  <div class="field">
-    <%= form.label :cost_free_attorney %>
-    <%= form.check_box :cost_free_attorney %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

@@ -1,35 +1,46 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Complaints</h1>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card card-plain">
+      <div class="card-header card-header-primary">
+        <h4 class="card-title-mt-0">Denuncias</h4>
+      </div>
+      <p class="card-category">Listado de Denuncias</p>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Conflict</th>
-      <th>Complainant</th>
-      <th>Institution</th>
-      <th>Court</th>
-      <th>Cost free attorney</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Tipo de Denuncia</th>
+            <th>Denunciante</th>
+            <th>Institution</th>
+            <th>Juzagado</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
 
-  <tbody>
-    <% @complaints.each do |complaint| %>
-      <tr>
-        <td><%= complaint.conflict %></td>
-        <td><%= complaint.complainant %></td>
-        <td><%= complaint.instittution %></td>
-        <td><%= complaint.court %></td>
-        <td><%= complaint.cost_free_attorney %></td>
-        <td><%= link_to 'Show', complaint %></td>
-        <td><%= link_to 'Edit', edit_complaint_path(complaint) %></td>
-        <td><%= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        <tbody>
+          <% @complaints.each do |complaint| %>
+            <tr>
+              <td><%= complaint.conflict.name %></td>
+              <td><%= complaint.complainant.full_name %></td>
+              <td><%= complaint.instittution.name %></td>
+              <td><%= complaint.court.name %></td>
+              <td><%= link_to 'Show', complaint %></td>
+              <td><%= link_to 'Edit', edit_complaint_path(complaint) %></td>
+              <td><%= link_to 'Destroy', complaint, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Complaint', new_complaint_path %>
+<%= link_to 'Nueva Denuncia', new_complaint_path, class: "btn btn-outline btn-primary" %>

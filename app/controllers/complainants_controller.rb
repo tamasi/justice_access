@@ -16,7 +16,6 @@ class ComplainantsController < ApplicationController
   def new
     @complainant = Complainant.new
     @complainant.build_migrant
-    
   end
 
   # GET /complainants/1/edit
